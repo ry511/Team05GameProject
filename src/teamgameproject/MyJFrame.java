@@ -6,6 +6,7 @@
 package teamgameproject;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -18,7 +19,7 @@ public class MyJFrame extends JFrame{
         super ("Team 05 Game Project");
         MyJPanel mjp = new MyJPanel();
         getContentPane().setBackground(Color.LIGHT_GRAY);
-        getContentPane().setLayout(new BorderLayout());
+        getContentPane().setLayout(new GridLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize (1500, 1200);
         setVisible(true); 
