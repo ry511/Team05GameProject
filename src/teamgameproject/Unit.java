@@ -24,14 +24,13 @@ public abstract class Unit {
         return health;
     }
 
-    public void moveUnit(int newPosX, int newPosY) {
-        if ((Math.abs(posX - newPosX) <= mobility) &&(Math.abs(posY - newPosY) <= mobility)) {
-            posX = newPosX;
-            posY = newPosY;
-        }
-        else {
-            System.out.println("Unit does not have enough mobility");
-        }
+    public boolean checkUnitMovement(int newPosX, int newPosY) {
+        if ((Math.abs(posX - newPosX) <= mobility) &&(Math.abs(posY - newPosY) <= mobility)) 
+            return true;
+        
+        else 
+            return false;
+        
     }
 
     public void setHealth(int health) {
