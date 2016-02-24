@@ -25,11 +25,12 @@ public abstract class Unit {
     }
 
     public void moveUnit(int newPosX, int newPosY) {
-        if (Math.abs(posX - newPosX) <= mobility) {
+        if ((Math.abs(posX - newPosX) <= mobility) &&(Math.abs(posY - newPosY) <= mobility)) {
             posX = newPosX;
-        }
-        if (Math.abs(posY - newPosY) <= mobility) {
             posY = newPosY;
+        }
+        else {
+            System.out.println("Unit does not have enough mobility");
         }
     }
 
