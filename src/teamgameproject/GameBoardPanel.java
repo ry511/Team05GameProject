@@ -35,7 +35,7 @@ public class GameBoardPanel extends JPanel{
         Insets buttonSeperation = new Insets(0,0,0,0);
         for (int i = 0; i < boardSpaces.length; i++){
             for (int j = 0; j < boardSpaces[i].length; j++){
-                JButton space = new JButton();
+                GameBoardSpace space = new GameBoardSpace();
                 space.setMargin(buttonSeperation);
                 ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
                 space.setIcon(spaceIcon);
