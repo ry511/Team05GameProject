@@ -19,15 +19,19 @@ public class GameBoardPanel extends JPanel{
     private int xAxis = 10;
     private int yAxis = 10;
     
-    private  JPanel gui = new JPanel(new BorderLayout(3, 3));
+    
     private JButton[][] boardSpaces = new JButton[xAxis][yAxis];
-    private JPanel gameBoard; 
+    
+    
     
     public GameBoardPanel(){
         super();
         
-        setLayout(new GridLayout(0, xAxis));
-        setBorder(new LineBorder(Color.DARK_GRAY));
+        
+        GridLayout grid = new GridLayout(0, 10);
+        setBorder(new LineBorder(Color.BLACK));
+        setLayout(grid);
+        
         Insets buttonSeperation = new Insets(0,0,0,0);
         for (int i = 0; i < boardSpaces.length; i++){
             for (int j = 0; j < boardSpaces[i].length; j++){
@@ -35,19 +39,16 @@ public class GameBoardPanel extends JPanel{
                 space.setMargin(buttonSeperation);
                 ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
                 space.setIcon(spaceIcon);
-                if ((j % 2 == 1 && i % 2 == 1)
-                        //) {
-                        || (j % 2 == 0 && i % 2 == 0)) {
-                    space.setBackground(Color.WHITE);
-                } else {
-                    space.setBackground(Color.BLACK);
-                }
-                //space.setBackground(Color.WHITE);
+                
+                space.setBackground(Color.WHITE);
                 boardSpaces[j][i] = space;
+                this.add(boardSpaces[j][i]);
             }
         }
         
     }
+    
+   
     
     public final void initializeBoard(){
         

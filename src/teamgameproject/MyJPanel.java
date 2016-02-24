@@ -34,7 +34,7 @@ public class MyJPanel extends JPanel implements ActionListener{
         
         gameBoardPanel = new GameBoardPanel();
         add(gameBoardPanel, BorderLayout.CENTER);
-        
+        gameBoardPanel.setVisible(true);
     }
     
     
