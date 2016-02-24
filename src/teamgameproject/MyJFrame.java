@@ -18,8 +18,8 @@ public class MyJFrame extends JFrame{
     public MyJFrame(){
         super ("Team 05 Game Project");
         MyJPanel mjp = new MyJPanel();
-        getContentPane().setBackground(Color.LIGHT_GRAY);
-        getContentPane().setLayout(new GridLayout());
+        getContentPane().add(mjp, "Center");
+        
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize (1500, 1200);
         setVisible(true); 

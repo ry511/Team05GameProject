@@ -6,20 +6,42 @@
 package teamgameproject;
 
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+import java.awt.image.BufferedImage;
+import javax.swing.*;
+import javax.swing.border.*;
 
 
 /**
  *
  * @author rwb5529
  */
-public class MyJPanel {
-    public MyJPanel(){
+public class MyJPanel extends JPanel implements ActionListener{
+    
+    
+    private GameBoardPanel gameBoardPanel;
+    
+    
+    
+    MyJPanel(){
+        
         super();
         
+        setBackground(Color.LIGHT_GRAY);
+        setLayout(new BorderLayout());
+        
+        gameBoardPanel = new GameBoardPanel();
+        add(gameBoardPanel, BorderLayout.CENTER);
+        
     }
+    
+    
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
