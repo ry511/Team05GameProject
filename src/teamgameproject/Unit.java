@@ -1,5 +1,8 @@
 package teamgameproject;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 public abstract class Unit {
 
     private int health;
@@ -9,6 +12,10 @@ public abstract class Unit {
     private int posX;
     private int posY;
     private int mobility;
+    protected Image image;
+    protected int width;
+    protected int height;
+    protected boolean vis;
 
     public Unit(int health, int attack, int range, String details, int posX, int posY, int mobility) {
         this.health = health;
@@ -25,12 +32,12 @@ public abstract class Unit {
     }
 
     public boolean checkUnitMovement(int newPosX, int newPosY) {
-        if ((Math.abs(posX - newPosX) <= mobility) &&(Math.abs(posY - newPosY) <= mobility)) 
+        if ((Math.abs(posX - newPosX) <= mobility) && (Math.abs(posY - newPosY) <= mobility)) {
             return true;
-        
-        else 
+        } else {
             return false;
-        
+        }
+
     }
 
     public void setHealth(int health) {
@@ -68,4 +75,29 @@ public abstract class Unit {
     public void setPosY(int posY) {
         this.posY = posY;
     }
+
+    protected void getImageDimensions() {
+
+        width = image.getWidth(null);
+        height = image.getHeight(null);
+    }
+
+    protected void loadImage(String imageName) {
+
+        ImageIcon ii = new ImageIcon(imageName);
+        image = ii.getImage();
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public boolean isVisible() {
+        return vis;
+    }
+
+    public void setVisible(Boolean visible) {
+        vis = visible;
+    }
+
 }
