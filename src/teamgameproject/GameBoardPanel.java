@@ -5,6 +5,7 @@
  */
 package teamgameproject;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
@@ -20,7 +21,7 @@ public class GameBoardPanel extends JPanel{
     private int yAxis = 10;
     
     
-    private JButton[][] boardSpaces = new JButton[xAxis][yAxis];
+    private GameBoardSpace[][] boardSpaces = new GameBoardSpace[xAxis][yAxis];
     
     
     
@@ -40,28 +41,13 @@ public class GameBoardPanel extends JPanel{
                 ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
                 space.setIcon(spaceIcon);
                 
+                
                 space.setBackground(Color.WHITE);
                 boardSpaces[j][i] = space;
                 this.add(boardSpaces[j][i]);
+                addActionListener(boardSpaces[j][i]);
             }
         }
         
-    }
-    
-   
-    
-    public final void initializeBoard(){
-        
-        Insets buttonSeperation = new Insets(0,0,0,0);
-        for (int i = 0; i < boardSpaces.length; i++){
-            for (int j = 0; j < boardSpaces[i].length; j++){
-                JButton space = new JButton();
-                space.setMargin(buttonSeperation);
-                ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
-                space.setIcon(spaceIcon);
-                space.setBackground(Color.WHITE);
-                boardSpaces[j][i] = space;
-            }
-        }
     }
 }
