@@ -12,11 +12,15 @@ package teamgameproject;
 public class NavigationCntl {
  
 NavigationUI theNavigationUI = null;
-
+        MyJFrame mjf = new MyJFrame();
 public NavigationCntl(){
         
         theNavigationUI = new NavigationUI(this);
         theNavigationUI.setLocationRelativeTo(null);
         theNavigationUI.setVisible(true);
 }
+ public void showGameboardFrame(){
+      
+     //  mjf.setVisible(true);
+    }
 }

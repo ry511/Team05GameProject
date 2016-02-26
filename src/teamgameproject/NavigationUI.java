@@ -16,6 +16,7 @@ import java.awt.*;
 public class NavigationUI extends JFrame{
     
     private NavigationCntl navigationCntl = null;
+   private MyJFrame mjf = new MyJFrame();
     private JButton cancelButton;
     private JButton startButton;
     private JPanel buttonPanel;
@@ -40,6 +41,11 @@ public class NavigationUI extends JFrame{
         
         
         startButton = new JButton("Start");
+        startButton.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                 startButtonActionPerformed(evt);
+            }
+        });
         buttonPanel = new JPanel();
         buttonPanel.add(cancelButton);
         buttonPanel.add(startButton);
@@ -47,9 +53,17 @@ public class NavigationUI extends JFrame{
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
     }
     
+        private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        
+        this.setVisible(false);
+        mjf.setVisible(true);
+        //navigationCntl.showGameboardFrame();
+    }   
+    
+    
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
-        System.exit(0);
+        
     }   
 }
 

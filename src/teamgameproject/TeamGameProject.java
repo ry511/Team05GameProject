@@ -18,8 +18,8 @@ public class TeamGameProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MyJFrame mjf = new MyJFrame();
-        mjf.setVisible(true);
+      //  MyJFrame mjf = new MyJFrame();
+      //  mjf.setVisible(true);
         NavigationCntl nCntl = new NavigationCntl();
     }
     
