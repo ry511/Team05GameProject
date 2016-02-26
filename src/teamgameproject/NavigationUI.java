@@ -16,7 +16,7 @@ import java.awt.*;
 public class NavigationUI extends JFrame{
     
     private NavigationCntl navigationCntl = null;
-   private MyJFrame mjf = new MyJFrame();
+ //  private MyJFrame mjf = new MyJFrame();
     private JButton cancelButton;
     private JButton startButton;
     private JPanel buttonPanel;
@@ -54,7 +54,7 @@ public class NavigationUI extends JFrame{
     }
     
         private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        
+         MyJFrame mjf = new MyJFrame();
         this.setVisible(false);
         mjf.setVisible(true);
         //navigationCntl.showGameboardFrame();

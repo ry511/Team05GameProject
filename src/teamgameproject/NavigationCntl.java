@@ -12,7 +12,7 @@ package teamgameproject;
 public class NavigationCntl {
  
 NavigationUI theNavigationUI = null;
-        MyJFrame mjf = new MyJFrame();
+       // MyJFrame mjf = new MyJFrame();
 public NavigationCntl(){
         
         theNavigationUI = new NavigationUI(this);
