@@ -16,7 +16,7 @@ import java.awt.*;
 public class NavigationUI extends JFrame{
     
     private NavigationCntl navigationCntl = null;
- //  private MyJFrame mjf = new MyJFrame();
+  
     private JButton cancelButton;
     private JButton startButton;
     private JPanel buttonPanel;
@@ -32,7 +32,7 @@ public class NavigationUI extends JFrame{
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         // Initialize all of the components
-        cancelButton = new JButton("Cancel");
+        cancelButton = new JButton("Boo!!");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -51,12 +51,21 @@ public class NavigationUI extends JFrame{
         buttonPanel.add(startButton);
         this.getContentPane().setLayout(new BorderLayout());
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        
+        
+         cancelButton.setFont(cancelButton.getFont().deriveFont(18.0f));
+          startButton.setFont(startButton.getFont().deriveFont(18.0f));
+        cancelButton.setPreferredSize(new Dimension(100, 100));
+        startButton.setPreferredSize(new Dimension(100, 100));
     }
     
         private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-         MyJFrame mjf = new MyJFrame();
+        
+        MyJFrame mjf = new MyJFrame();
         this.setVisible(false);
         mjf.setVisible(true);
+        mjf.setLocationRelativeTo(null);
+        
         //navigationCntl.showGameboardFrame();
     }   
     
