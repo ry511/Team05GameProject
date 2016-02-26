@@ -20,8 +20,7 @@ public class TeamGameProject {
         // TODO code application logic here
         MyJFrame mjf = new MyJFrame();
         mjf.setVisible(true);
-        NavigationUI nUI = new NavigationUI();
-        nUI.setVisible(true);
+        NavigationCntl nCntl = new NavigationCntl();
     }
     
 }
