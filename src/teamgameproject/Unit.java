@@ -9,28 +9,33 @@ public abstract class Unit {
     private int attack;
     private int range;
     private String details;
-    private int posX;
-    private int posY;
+    //private int posX;
+    //private int posY;
     private int mobility;
     protected Image image;
     protected int width;
     protected int height;
     protected boolean vis;
+    private ImageIcon img;
 
-    public Unit(int health, int attack, int range, String details, int posX, int posY, int mobility) {
+    public Unit(int health, int attack, int range, String details, /*int posX, int posY,*/ int mobility, ImageIcon img) {
         this.health = health;
         this.attack = attack;
         this.range = range;
         this.details = details;
-        this.posX = posX;
-        this.posY = posY;
+        //this.posX = posX;
+        //this.posY = posY;
         this.mobility = mobility;
+        this.img = img;
     }
 
+    public ImageIcon getImg(){
+        return this.img;
+    }
     public int getHealth() {
         return health;
     }
-
+/*
     public boolean checkUnitMovement(int newPosX, int newPosY) {
         if ((Math.abs(posX - newPosX) <= mobility) && (Math.abs(posY - newPosY) <= mobility)) {
             return true;
@@ -39,7 +44,7 @@ public abstract class Unit {
         }
 
     }
-
+*/
     public void setHealth(int health) {
         this.health = health;
     }
@@ -59,7 +64,7 @@ public abstract class Unit {
     public void setDetails(String details) {
         this.details = details;
     }
-
+/*
     public int getPosX() {
         return posX;
     }
@@ -75,7 +80,7 @@ public abstract class Unit {
     public void setPosY(int posY) {
         this.posY = posY;
     }
-
+*/
     protected void getImageDimensions() {
 
         width = image.getWidth(null);
