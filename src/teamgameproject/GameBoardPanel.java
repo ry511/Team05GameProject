@@ -62,10 +62,8 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
             }
             }
         
-        Peon peon = new Peon();
-        boardSpaces[5][5].setUnit(peon);
-        boardSpaces[5][5].setIsOccupied(true);
-        boardSpaces[5][5].displayUnitImg();
+        createPeon(0,0);
+
         
         
     }
@@ -147,6 +145,13 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
                 
             }
         }
+    }
+    
+    public void createPeon(int x, int y){
+        Peon p = new Peon();
+        boardSpaces[x][y].setUnit(p);
+        boardSpaces[x][y].setIsOccupied(true);
+        boardSpaces[x][y].displayUnitImg();
     }
         
     }
