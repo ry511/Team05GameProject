@@ -24,6 +24,10 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
     
     private int xAxis = 10;
     private int yAxis = 10;
+    private boolean isUnitSelected = false;
+    private GameBoardSpace currentSpace = null;
+    private GameBoardSpace newSpace = null;
+    private Unit currentUnit = null;
     
     private ArrayList<Unit> units = new ArrayList<Unit>();
     
@@ -34,6 +38,8 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
     public GameBoardPanel(){
         super();
         
+        this.isUnitSelected = isUnitSelected;
+        
         
         GridLayout grid = new GridLayout(0, 10);
         setBorder(new LineBorder(Color.BLACK));
@@ -42,7 +48,7 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
         Insets buttonSeperation = new Insets(0,0,0,0);
         for (int i = 0; i < boardSpaces.length; i++){
             for (int j = 0; j < boardSpaces[i].length; j++){
-                GameBoardSpace space = new GameBoardSpace(j, i);
+                GameBoardSpace space = new GameBoardSpace(j, i, this);
                 space.setMargin(buttonSeperation);
                 ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
                 space.setIcon(spaceIcon);
@@ -51,18 +57,67 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
                 space.setBackground(Color.WHITE);
                 boardSpaces[j][i] = space;
                 this.add(boardSpaces[j][i]);
-                boardSpaces[j][i].addMouseListener(this);
+                boardSpaces[j][i].addActionListener(this);
                 
                 
             }
             }
         
-            
-        }
-
+        Peon peon = new Peon();
+        boardSpaces[5][5].setUnit(peon);
+        boardSpaces[5][5].setIsOccupied(true);
+        boardSpaces[5][5].displayUnitImg();
+        
+        
+    }
+    
+    public GameBoardSpace getGameBoardSpace(int x, int y){
+        return boardSpaces[x][y];
+    }
+    
+    public GameBoardSpace getCurrentSpace(){
+        return currentSpace;
+    }
+    
+    public void setCurrentSpace(GameBoardSpace currentSpace){
+        this.currentSpace = currentSpace;
+    }
+    
+    public GameBoardSpace getNewSpace(){
+        return newSpace;
+    }
+    
+    public void setNewSpace(GameBoardSpace newSpace){
+        this.newSpace = newSpace;
+    }
+    
+    public Unit getCurrentUnit(){
+        return currentUnit;
+    }
+    
+    public void setCurrentUnit(Unit currentUnit){
+        this.currentUnit = currentUnit;
+    }
+    
+    public boolean getIsUnitSelected(){
+        return isUnitSelected;
+    }
+    
+    public void setIsUnitSelected(boolean isUnitSelected){
+        this.isUnitSelected = isUnitSelected;
+    }
+    
+    public void setGameBoardSpace(int x, int y, GameBoardSpace space){
+        this.boardSpaces[x][y] = space;
+    }
+    
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("mouse clicked");
+        for (int i =0; i < boardSpaces.length; i++){
+            for (int j = 0; j < boardSpaces[i].length;j++){
+                
+            }
+        }
     }
 
     @Override
@@ -87,7 +142,12 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("action performed");
+        Object obj = e.getSource();
+        for (int i =0; i < boardSpaces.length; i++){
+            for (int j = 0; j < boardSpaces[i].length;j++){
+                
+            }
+        }
     }
         
     }
