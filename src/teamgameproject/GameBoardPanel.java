@@ -19,7 +19,7 @@ import javax.swing.border.LineBorder;
  *
  * @author rwb5529
  */
-public class GameBoardPanel extends JPanel implements MouseListener, ActionListener{
+public class GameBoardPanel extends JPanel {
     
     private int xAxis = 10;
     private int yAxis = 10;
@@ -56,7 +56,7 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
                 space.setBackground(Color.WHITE);
                 boardSpaces[j][i] = space;
                 this.add(boardSpaces[j][i]);
-                boardSpaces[j][i].addActionListener(this);
+                
                 
                 
             }
@@ -106,45 +106,6 @@ public class GameBoardPanel extends JPanel implements MouseListener, ActionListe
     
     public void setGameBoardSpace(int x, int y, GameBoardSpace space){
         this.boardSpaces[x][y] = space;
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        for (int i =0; i < boardSpaces.length; i++){
-            for (int j = 0; j < boardSpaces[i].length;j++){
-                
-            }
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        System.out.println("mouse pressed");
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        System.out.println("mouse released");
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        System.out.println("mouse entered");
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        System.out.println("mouse exited");
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object obj = e.getSource();
-        for (int i =0; i < boardSpaces.length; i++){
-            for (int j = 0; j < boardSpaces[i].length;j++){
-                
-            }
-        }
     }
     
     public void createPeon(int x, int y){
