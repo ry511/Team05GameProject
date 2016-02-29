@@ -52,6 +52,9 @@ public abstract class Unit {
     public int getAttack() {
         return attack;
     }
+    public void setAttack(int newAttack){
+        this.attack = newAttack;
+    }
 
     public int getRange() {
         return range;
