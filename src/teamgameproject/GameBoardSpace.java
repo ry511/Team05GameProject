@@ -68,21 +68,14 @@ public class GameBoardSpace extends JButton implements ActionListener{
         System.out.println("y: " + getYCord());
         System.out.println(gbp.getIsUnitSelected());
         
-        /*
-        GameBoardSpace currentSpace = null;
-        GameBoardSpace newSpace = null;
-        Unit currentUnit = null;
-        */
+        
         if(gbp.getIsUnitSelected() && !getIsOccupied()){  
             System.out.println("test: " + gbp.getCurrentUnit().getDetails());
             
-            /*
-            newSpace = gbp.getGameBoardSpace(getXCord(), getYCord());
-                    */
+            
             setUnit(gbp.getCurrentUnit());
             gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
-            //gbp.setGameBoardSpace(getXCord(), getYCord(), gbp.getNewSpace());
-            //gbp.getCurrentSpace().setUnit(unit);
+            
             
             gbp.getCurrentSpace().displayUnitImg();
             ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
