@@ -69,21 +69,6 @@ public class GameBoardSpace extends JButton implements ActionListener{
         System.out.println(gbp.getIsUnitSelected());
         
         
-        if(gbp.getIsUnitSelected() && !getIsOccupied()){  
-            System.out.println("test: " + gbp.getCurrentUnit().getDetails());
-            
-            
-            setUnit(gbp.getCurrentUnit());
-            gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
-            
-            
-            gbp.getCurrentSpace().displayUnitImg();
-            ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
-            gbp.getCurrentSpace().setIcon(spaceIcon);
-            
-            displayUnitImg();
-            gbp.setIsUnitSelected(false);
-        }
         if(isOccupied && !gbp.getIsUnitSelected()){
             System.out.println(unit.getDetails());
             gbp.setCurrentUnit(getUnit());
@@ -94,6 +79,17 @@ public class GameBoardSpace extends JButton implements ActionListener{
             
             gbp.setIsUnitSelected(true); 
             System.out.println(gbp.getIsUnitSelected());
+        }else if(gbp.getIsUnitSelected() && !getIsOccupied()){
+            setUnit(gbp.getCurrentUnit());
+            gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
+            
+            
+            gbp.getCurrentSpace().displayUnitImg();
+            ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50,50, BufferedImage.TYPE_INT_ARGB));
+            gbp.getCurrentSpace().setIcon(spaceIcon);
+            gbp.setCurrentUnit(null);
+            displayUnitImg();
+            gbp.setIsUnitSelected(false);
         }
                 
     }
