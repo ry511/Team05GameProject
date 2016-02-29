@@ -63,6 +63,7 @@ public class GameBoardPanel extends JPanel {
             }
         
         createPeon(0,0);
+        createPeon(1,5);
 
         
         

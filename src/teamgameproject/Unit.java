@@ -52,6 +52,9 @@ public abstract class Unit {
     public int getAttack() {
         return attack;
     }
+    public void setAttack(int newAttack){
+        this.attack = newAttack;
+    }
 
     public int getRange() {
         return range;
@@ -81,17 +84,6 @@ public abstract class Unit {
         this.posY = posY;
     }
 */
-    protected void getImageDimensions() {
-
-        width = image.getWidth(null);
-        height = image.getHeight(null);
-    }
-
-    protected void loadImage(String imageName) {
-
-        ImageIcon ii = new ImageIcon(imageName);
-        image = ii.getImage();
-    }
 
     public Image getImage() {
         return image;
