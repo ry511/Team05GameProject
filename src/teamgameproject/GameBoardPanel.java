@@ -29,6 +29,7 @@ public class GameBoardPanel extends JPanel {
     private Unit currentUnit = null;
 
     private ArrayList<Unit> units = new ArrayList<Unit>();
+    private ArrayList<Unit> darkUnits = new ArrayList<Unit>();
 
     private GameBoardSpace[][] boardSpaces = new GameBoardSpace[xAxis][yAxis];
 
@@ -130,6 +131,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(p.getStats());
+        units.add(p);
         
     }
 
@@ -139,7 +141,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(dp.getStats());
-        
+        units.add(dp);
     }
 
     public void createWizard(int x, int y) {
@@ -148,6 +150,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(w.getStats());
+        units.add(w);
     }
 
     public void createDarkWizard(int x, int y) {
@@ -156,6 +159,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(dw.getStats());
+        units.add(dw);
     }
 
     public void createKnight(int x, int y) {
@@ -164,7 +168,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(k.getStats());
-        
+        units.add(k);
     }
 
     public void createDarkKnight(int x, int y) {
@@ -173,6 +177,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(dk.getStats());
+        units.add(dk);
     }
 
 }

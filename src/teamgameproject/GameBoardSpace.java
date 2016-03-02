@@ -85,6 +85,8 @@ public class GameBoardSpace extends JButton implements ActionListener {
             displayUnitImg();
             
             gbp.setIsUnitSelected(false);
+        } else if(gbp.getIsUnitSelected() && isOccupied){
+            
         }
 
     }
