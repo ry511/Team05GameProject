@@ -79,7 +79,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
 
             gbp.getCurrentSpace().displayUnitImg();
-            ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB));
+            ImageIcon spaceIcon = new ImageIcon("src/images/grass.png");
             gbp.getCurrentSpace().setIcon(spaceIcon);
             gbp.setCurrentUnit(null);
             displayUnitImg();

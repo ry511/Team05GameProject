@@ -39,7 +39,7 @@ public class GameBoardPanel extends JPanel {
         this.isUnitSelected = isUnitSelected;
 
         GridLayout grid = new GridLayout(0, 10);
-        setBorder(new LineBorder(Color.BLACK));
+        setBorder(new LineBorder(Color.GREEN));
         setLayout(grid);
 
         Insets buttonSeperation = new Insets(0, 0, 0, 0);
@@ -47,10 +47,9 @@ public class GameBoardPanel extends JPanel {
             for (int j = 0; j < boardSpaces[i].length; j++) {
                 GameBoardSpace space = new GameBoardSpace(j, i, this);
                 space.setMargin(buttonSeperation);
-                ImageIcon spaceIcon = new ImageIcon(new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB));
+                ImageIcon spaceIcon = new ImageIcon("src/images/grass.png");
                 space.setIcon(spaceIcon);
 
-                space.setBackground(Color.WHITE);
                 boardSpaces[j][i] = space;
                 this.add(boardSpaces[j][i]);
                 
