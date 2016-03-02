@@ -97,4 +97,8 @@ public abstract class Unit {
         vis = visible;
     }
 
+    public int getMobility() {
+        return mobility;
+    }
+
 }

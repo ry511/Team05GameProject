@@ -34,7 +34,6 @@ public class GameBoardPanel extends JPanel {
 
     public GameBoardPanel() {
         super();
-        AdvancedUnits au = new AdvancedUnits();
 
         this.isUnitSelected = isUnitSelected;
 
@@ -53,7 +52,7 @@ public class GameBoardPanel extends JPanel {
                 space.setBackground(Color.WHITE);
                 boardSpaces[j][i] = space;
                 this.add(boardSpaces[j][i]);
-
+                
             }
         }
 
@@ -130,6 +129,8 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setUnit(p);
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(p.getStats());
+        
     }
 
     public void createDarkPeon(int x, int y) {
@@ -137,6 +138,8 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setUnit(dp);
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(dp.getStats());
+        
     }
 
     public void createWizard(int x, int y) {
@@ -144,6 +147,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setUnit(w);
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(w.getStats());
     }
 
     public void createDarkWizard(int x, int y) {
@@ -151,6 +155,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setUnit(dw);
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(dw.getStats());
     }
 
     public void createKnight(int x, int y) {
@@ -158,6 +163,8 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setUnit(k);
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(k.getStats());
+        
     }
 
     public void createDarkKnight(int x, int y) {
@@ -165,6 +172,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setUnit(dk);
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(dk.getStats());
     }
 
 }
