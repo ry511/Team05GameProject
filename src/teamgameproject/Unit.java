@@ -17,8 +17,6 @@ public abstract class Unit {
     protected int height;
     protected boolean vis;
     private ImageIcon img;
-    
-    
 
     public Unit(int health, int attack, int range, String details, /*int posX, int posY,*/ int mobility, ImageIcon img) {
         this.health = health;
@@ -29,18 +27,24 @@ public abstract class Unit {
         //this.posY = posY;
         this.mobility = mobility;
         this.img = img;
-        
+
     }
 
-    public ImageIcon getImg(){
+    public String getStats() {
+        return getDetails() + " Attack: " + getAttack() + " Range: " + getRange() + " Mobility: " + getMobility()
+                + " Health: " + getHealth();
+    }
+
+    public ImageIcon getImg() {
         return this.img;
     }
+
     public int getHealth() {
         return health;
     }
 
     public boolean checkUnitMovement(int oldX, int oldY, int newPosX, int newPosY) {
-        if ((Math.abs( oldX - newPosX) <= mobility) && (Math.abs(oldY - newPosY) <= mobility)) {
+        if ((Math.abs(oldX - newPosX) <= mobility) && (Math.abs(oldY - newPosY) <= mobility)) {
             return true;
         } else {
             return false;
@@ -55,7 +59,8 @@ public abstract class Unit {
     public int getAttack() {
         return attack;
     }
-    public void setAttack(int newAttack){
+
+    public void setAttack(int newAttack) {
         this.attack = newAttack;
     }
 
@@ -70,23 +75,23 @@ public abstract class Unit {
     public void setDetails(String details) {
         this.details = details;
     }
-/*
-    public int getPosX() {
-        return posX;
-    }
+    /*
+     public int getPosX() {
+     return posX;
+     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
+     public void setPosX(int posX) {
+     this.posX = posX;
+     }
 
-    public int getPosY() {
-        return posY;
-    }
+     public int getPosY() {
+     return posY;
+     }
 
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-*/
+     public void setPosY(int posY) {
+     this.posY = posY;
+     }
+     */
 
     public Image getImage() {
         return image;

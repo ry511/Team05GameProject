@@ -116,7 +116,9 @@ public class GameBoardSpace extends JButton implements ActionListener {
             }
             setUnit(gbp.getCurrentUnit());
             gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
-
+            setToolTipText(gbp.getCurrentUnit().getStats());
+            gbp.getCurrentSpace().setToolTipText(null);
+            
             gbp.getCurrentSpace().displayUnitImg();
             ImageIcon spaceIcon = new ImageIcon("src/images/grass.png");
             gbp.getCurrentSpace().setIcon(spaceIcon);
