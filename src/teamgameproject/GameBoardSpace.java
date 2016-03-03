@@ -132,6 +132,12 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setCurrentSpace(null);
             gbp.setIsUnitSelected(false);
         } else if(gbp.getIsUnitSelected() && isOccupied){
+            Unit aUnit = gbp.getCurrentUnit();
+            int attackedPeonHealth = aUnit.getHealth();
+            int newAttackedHealth = --attackedPeonHealth;
+            aUnit.setHealth(newAttackedHealth);
+            System.out.println(aUnit.getHealth());
+            gbp.setIsUnitSelected(false);
             
         }
 
