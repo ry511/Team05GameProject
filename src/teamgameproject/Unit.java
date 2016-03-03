@@ -17,6 +17,8 @@ public abstract class Unit {
     protected int height;
     protected boolean vis;
     private ImageIcon img;
+    
+    
 
     public Unit(int health, int attack, int range, String details, /*int posX, int posY,*/ int mobility, ImageIcon img) {
         this.health = health;
@@ -27,6 +29,7 @@ public abstract class Unit {
         //this.posY = posY;
         this.mobility = mobility;
         this.img = img;
+        
     }
 
     public ImageIcon getImg(){
@@ -35,16 +38,16 @@ public abstract class Unit {
     public int getHealth() {
         return health;
     }
-/*
-    public boolean checkUnitMovement(int newPosX, int newPosY) {
-        if ((Math.abs(posX - newPosX) <= mobility) && (Math.abs(posY - newPosY) <= mobility)) {
+
+    public boolean checkUnitMovement(int oldX, int oldY, int newPosX, int newPosY) {
+        if ((Math.abs( oldX - newPosX) <= mobility) && (Math.abs(oldY - newPosY) <= mobility)) {
             return true;
         } else {
             return false;
         }
 
     }
-*/
+
     public void setHealth(int health) {
         this.health = health;
     }
