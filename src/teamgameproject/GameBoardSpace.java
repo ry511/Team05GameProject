@@ -96,6 +96,18 @@ public class GameBoardSpace extends JButton implements ActionListener {
                 if(getYCord() - i >= 0){
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord(), getYCord() - i);
                 }
+                if(getXCord() + i <= 9 && getYCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() + i, getYCord() + i);
+                }
+                if(getYCord() + i <= 9 && getXCord() - i >= 0){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() - i, getYCord() + i);
+                }
+                if(getXCord() - i >= 0 && getYCord() - i >= 0){   
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() - i, getYCord() - i);
+                }
+                if(getYCord() - i >= 0 && getXCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() + i, getYCord() - i);
+                }
             }
             
         } else if (gbp.getIsUnitSelected() && !getIsOccupied() && gbp.getCurrentUnit().checkUnitMovement(gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord(), getXCord(), getYCord())) {
@@ -113,6 +125,18 @@ public class GameBoardSpace extends JButton implements ActionListener {
                 if(gbp.getCurrentSpace().getYCord() - i >= 0){
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord() - i);
                 }
+                if(gbp.getCurrentSpace().getXCord() + i <= 9 && gbp.getCurrentSpace().getYCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() + i);
+                }
+                if(gbp.getCurrentSpace().getYCord() + i <= 9 && gbp.getCurrentSpace().getXCord() - i >= 0){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord() + i);
+                }
+                if(gbp.getCurrentSpace().getXCord() - i >= 0 && gbp.getCurrentSpace().getYCord() - i >= 0){   
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord() - i);
+                }
+                if(gbp.getCurrentSpace().getYCord() - i >= 0 && gbp.getCurrentSpace().getXCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() - i);
+                }
             }
             setUnit(gbp.getCurrentUnit());
             gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
@@ -128,6 +152,34 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setCurrentUnit(null);
             gbp.setIsUnitSelected(false);
         } else if(gbp.getIsUnitSelected() && !getIsOccupied() && !gbp.getCurrentUnit().checkUnitMovement(gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord(), getXCord(), getYCord())){
+            ImageIcon movableSpaceIcon = new ImageIcon("src/images/grass.png");
+            for(int i = 1; i <= gbp.getCurrentUnit().getMobility(); i++){
+                if(gbp.getCurrentSpace().getXCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord());
+                }
+                if(gbp.getCurrentSpace().getYCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord() + i);
+                }
+                if(gbp.getCurrentSpace().getXCord() - i >= 0){   
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord());
+                }
+                if(gbp.getCurrentSpace().getYCord() - i >= 0){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord() - i);
+                }
+                if(gbp.getCurrentSpace().getXCord() + i <= 9 && gbp.getCurrentSpace().getYCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() + i);
+                }
+                if(gbp.getCurrentSpace().getYCord() + i <= 9 && gbp.getCurrentSpace().getXCord() - i >= 0){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord() + i);
+                }
+                if(gbp.getCurrentSpace().getXCord() - i >= 0 && gbp.getCurrentSpace().getYCord() - i >= 0){   
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord() - i);
+                }
+                if(gbp.getCurrentSpace().getYCord() - i >= 0 && gbp.getCurrentSpace().getXCord() + i <= 9){
+                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() - i);
+                }
+            }
+            
             gbp.getCurrentSpace().setIsOccupied(true);
             
             gbp.setCurrentUnit(null);
