@@ -84,16 +84,16 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setIsUnitSelected(true);
             ImageIcon movableSpaceIcon = new ImageIcon("src/images/grass_yellow.png");
             for(int i = 1; i <= getUnit().getMobility(); i++){
-                if(getXCord() + 1 <= 9){
+                if(getXCord() + i <= 9){
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() + i, getYCord());
                 }
-                if(getYCord() + 1 <= 9){
+                if(getYCord() + i <= 9){
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord(), getYCord() + i);
                 }
-                if(getXCord() - 1 >= 0){   
+                if(getXCord() - i >= 0){   
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() - i, getYCord());
                 }
-                if(getYCord() - 1 >= 0){
+                if(getYCord() - i >= 0){
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord(), getYCord() - i);
                 }
             }
