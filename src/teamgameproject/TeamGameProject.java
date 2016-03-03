@@ -5,6 +5,13 @@
  */
 package teamgameproject;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStream;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import java.io.*;
+import sun.audio.*;
 
 
 /**
@@ -16,11 +23,11 @@ public class TeamGameProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         // TODO code application logic here
       //  MyJFrame mjf = new MyJFrame();
       //  mjf.setVisible(true);
         NavigationCntl nCntl = new NavigationCntl();
-    }
+  }
     
-}
+    }

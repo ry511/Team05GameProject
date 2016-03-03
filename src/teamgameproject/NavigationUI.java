@@ -77,27 +77,30 @@ public class NavigationUI extends JFrame{
             }
         });
       //  buttonPanel = new JPanel();
-        
-       
-    }
+        instruction.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                 instructionButtonActionPerformed(evt);
+            }
+        });
+           }
     
     
         private void instructionButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
-        MyJFrame mjf = new MyJFrame();
+        Instruction ist = new Instruction();
         this.setVisible(false);
-        mjf.setVisible(true);
-        mjf.setLocationRelativeTo(null);
+        ist.setVisible(true);
+        ist.setLocationRelativeTo(null);
         
         }
     
     
         private void optionButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
-        MyJFrame mjf = new MyJFrame();
+        OptionUI oUI = new OptionUI();
         this.setVisible(false);
-        mjf.setVisible(true);
-        mjf.setLocationRelativeTo(null);
+        oUI.setVisible(true);
+        oUI.setLocationRelativeTo(null);
         
         }
     
