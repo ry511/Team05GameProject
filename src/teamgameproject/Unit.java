@@ -18,8 +18,9 @@ public abstract class Unit {
     protected boolean vis;
     private ImageIcon img;
     private boolean isDark;
+    private int ID;
 
-    public Unit(int health, int attack, int range, String details, int mobility, ImageIcon img, boolean isDark) {
+    public Unit(int health, int attack, int range, String details, int mobility, ImageIcon img, boolean isDark, int ID) {
         this.health = health;
         this.attack = attack;
         this.range = range;
@@ -29,9 +30,13 @@ public abstract class Unit {
         this.mobility = mobility;
         this.img = img;
         this.isDark = isDark;
-
+        this.ID = ID;
     }
-
+    
+    public int getID(){
+        return this.ID;
+    }
+    
     public boolean getIsDark(){
         return this.isDark;
     }
@@ -51,6 +56,15 @@ public abstract class Unit {
 
     public boolean checkUnitMovement(int oldX, int oldY, int newPosX, int newPosY) {
         if ((Math.abs(oldX - newPosX) <= mobility) && (Math.abs(oldY - newPosY) <= mobility)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    
+    public boolean checkUnitRange(int oldX, int oldY, int newPosX, int newPosY) {
+        if ((Math.abs(oldX - newPosX) <= range) && (Math.abs(oldY - newPosY) <= range)) {
             return true;
         } else {
             return false;
