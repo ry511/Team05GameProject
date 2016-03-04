@@ -86,47 +86,11 @@ public class GameBoardSpace extends JButton implements ActionListener {
             }
         
     }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        
-
-        if (isOccupied && !gbp.getIsUnitSelected()) {
-            gbp.setCurrentUnit(getUnit());
-            gbp.setCurrentSpace(gbp.getGameBoardSpace(getXCord(), getYCord()));
-            isOccupied = false;
-            gbp.setIsUnitSelected(true);
-            ImageIcon movableSpaceIcon = new ImageIcon("src/images/grass_yellow.png");
-            for(int i = 1; i <= getUnit().getMobility(); i++){
-                if(getXCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() + i, getYCord());
-                }
-                if(getYCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord(), getYCord() + i);
-                }
-                if(getXCord() - i >= 0){   
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() - i, getYCord());
-                }
-                if(getYCord() - i >= 0){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord(), getYCord() - i);
-                }
-                if(getXCord() + i <= 9 && getYCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() + i, getYCord() + i);
-                }
-                if(getYCord() + i <= 9 && getXCord() - i >= 0){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() - i, getYCord() + i);
-                }
-                if(getXCord() - i >= 0 && getYCord() - i >= 0){   
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() - i, getYCord() - i);
-                }
-                if(getYCord() - i >= 0 && getXCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), getXCord() + i, getYCord() - i);
-                }
-            }
-            
-        } else if (gbp.getIsUnitSelected() && !getIsOccupied() && gbp.getCurrentUnit().checkUnitMovement(gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord(), getXCord(), getYCord())) {
-            ImageIcon movableSpaceIcon = new ImageIcon("src/images/grass.png");
-            for(int i = 1; i <= gbp.getCurrentUnit().getMobility(); i++){
+    
+    public void showMovementIndicators(String image){
+        ImageIcon movableSpaceIcon = new ImageIcon(image);
+        for(int i = 1; i <= gbp.getCurrentUnit().getMobility(); i++){
+            for(int j = 1; j <= gbp.getCurrentUnit().getMobility(); j++){
                 if(gbp.getCurrentSpace().getXCord() + i <= 9){
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord());
                 }
@@ -152,6 +116,24 @@ public class GameBoardSpace extends JButton implements ActionListener {
                     displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() - i);
                 }
             }
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        
+
+        if (isOccupied && !gbp.getIsUnitSelected()) {
+            gbp.setCurrentUnit(getUnit());
+            gbp.setCurrentSpace(gbp.getGameBoardSpace(getXCord(), getYCord()));
+            isOccupied = false;
+            gbp.setIsUnitSelected(true);
+            
+            showMovementIndicators("src/images/grass_yellow.png");
+            
+            
+        } else if (gbp.getIsUnitSelected() && !getIsOccupied() && gbp.getCurrentUnit().checkUnitMovement(gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord(), getXCord(), getYCord())) {
+            showMovementIndicators("src/images/grass.png");
             setUnit(gbp.getCurrentUnit());
             gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
             setToolTipText(gbp.getCurrentUnit().getStats());
@@ -166,33 +148,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setCurrentUnit(null);
             gbp.setIsUnitSelected(false);
         } else if(gbp.getIsUnitSelected() && !getIsOccupied() && !gbp.getCurrentUnit().checkUnitMovement(gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord(), getXCord(), getYCord())){
-            ImageIcon movableSpaceIcon = new ImageIcon("src/images/grass.png");
-            for(int i = 1; i <= gbp.getCurrentUnit().getMobility(); i++){
-                if(gbp.getCurrentSpace().getXCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord());
-                }
-                if(gbp.getCurrentSpace().getYCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord() + i);
-                }
-                if(gbp.getCurrentSpace().getXCord() - i >= 0){   
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord());
-                }
-                if(gbp.getCurrentSpace().getYCord() - i >= 0){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord(), gbp.getCurrentSpace().getYCord() - i);
-                }
-                if(gbp.getCurrentSpace().getXCord() + i <= 9 && gbp.getCurrentSpace().getYCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() + i);
-                }
-                if(gbp.getCurrentSpace().getYCord() + i <= 9 && gbp.getCurrentSpace().getXCord() - i >= 0){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord() + i);
-                }
-                if(gbp.getCurrentSpace().getXCord() - i >= 0 && gbp.getCurrentSpace().getYCord() - i >= 0){   
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() - i, gbp.getCurrentSpace().getYCord() - i);
-                }
-                if(gbp.getCurrentSpace().getYCord() - i >= 0 && gbp.getCurrentSpace().getXCord() + i <= 9){
-                    displayUnitMovement(movableSpaceIcon, gbp.getCurrentUnit().getMobility(), gbp.getCurrentSpace().getXCord() + i, gbp.getCurrentSpace().getYCord() - i);
-                }
-            }
+            showMovementIndicators("src/images/grass.png");
             
             gbp.getCurrentSpace().setIsOccupied(true);
             
@@ -200,6 +156,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setCurrentSpace(null);
             gbp.setIsUnitSelected(false);
         } else if(gbp.getIsUnitSelected() && isOccupied){
+            showMovementIndicators("src/images/grass.png");
             InputStream in;
             try{
             in = new FileInputStream(new File("/Users/jeongeunsun/NetBeansProjects/NewFolder/Lab2B_Team5/Team05GameProject/src/Soundeffect/Sword.wav"));
