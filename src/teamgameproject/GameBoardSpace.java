@@ -2,8 +2,12 @@
 package teamgameproject;
 
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import javax.swing.*;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  *
@@ -29,7 +33,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
 
 
     }
-
+   
     public void setUnit(Unit unit) {
         this.unit = unit;
     }
@@ -39,7 +43,17 @@ public class GameBoardSpace extends JButton implements ActionListener {
     }
 
     public boolean getIsOccupied() {
-        return this.isOccupied;
+      InputStream in;
+        try{
+            in = new FileInputStream(new File("/Users/jeongeunsun/NetBeansProjects/NewFolder/Lab2B_Team5/Team05GameProject/src/Soundeffect/footstep.wav"));
+            AudioStream audios=new AudioStream(in);
+            AudioPlayer.player.start(audios);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+        return this.isOccupied;   
     }
 
     public void setIsOccupied(boolean isOccupied) {
@@ -59,7 +73,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
     }
     
     public void displayUnitMovement(ImageIcon icon, int mobility, int xCord, int yCord){
-        
+   
             if (!gbp.getGameBoardSpace(xCord, yCord).isOccupied){
                 gbp.getGameBoardSpace(xCord, yCord).setIcon(icon);
             }
@@ -186,6 +200,17 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setCurrentSpace(null);
             gbp.setIsUnitSelected(false);
         } else if(gbp.getIsUnitSelected() && isOccupied){
+            InputStream in;
+            try{
+            in = new FileInputStream(new File("/Users/jeongeunsun/NetBeansProjects/NewFolder/Lab2B_Team5/Team05GameProject/src/Soundeffect/Sword.wav"));
+            AudioStream audios=new AudioStream(in);
+            AudioPlayer.player.start(audios);
+              }
+               catch(Exception e){
+               JOptionPane.showMessageDialog(null,e);
+             }
+           
+            
             getUnit().setHealth(getUnit().getHealth() - gbp.getCurrentUnit().getAttack());
             System.out.println(getUnit().getHealth());
             if(getUnit().getHealth() <= 0){
