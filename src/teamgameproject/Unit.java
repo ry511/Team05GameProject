@@ -17,8 +17,9 @@ public abstract class Unit {
     protected int height;
     protected boolean vis;
     private ImageIcon img;
+    private boolean isDark;
 
-    public Unit(int health, int attack, int range, String details, int mobility, ImageIcon img) {
+    public Unit(int health, int attack, int range, String details, int mobility, ImageIcon img, boolean isDark) {
         this.health = health;
         this.attack = attack;
         this.range = range;
@@ -27,9 +28,14 @@ public abstract class Unit {
         //this.posY = posY;
         this.mobility = mobility;
         this.img = img;
+        this.isDark = isDark;
 
     }
 
+    public boolean getIsDark(){
+        return this.isDark;
+    }
+    
     public String getStats() {
         return getDetails() + " Attack: " + getAttack() + " Range: " + getRange() + " Mobility: " + getMobility()
                 + " Health: " + getHealth();

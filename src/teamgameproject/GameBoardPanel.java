@@ -28,24 +28,39 @@ public class GameBoardPanel extends JPanel {
     private GameBoardSpace newSpace = null;
     private Unit currentUnit = null;
 
-    private ArrayList<Unit> units = new ArrayList<Unit>();
-    private ArrayList<Unit> darkUnits = new ArrayList<Unit>();
-
+    private ArrayList<Unit> units /*= new ArrayList<Unit>()*/;
+    private ArrayList<Unit> darkUnits /*= new ArrayList<Unit>()*/;
+    
+    private int numUnits;
+    private int numDarkUnits;
+    
     private GameBoardSpace[][] boardSpaces = new GameBoardSpace[xAxis][yAxis];
 
+    private MyJPanel mjp;
+    
     public GameBoardPanel() {
         super();
 
-        this.isUnitSelected = isUnitSelected;
+        
+ 
 
+        
+        init();
+    }
+    
+    public void init(){
+        
+        units = new ArrayList<Unit>();
+        darkUnits = new ArrayList<Unit>();
+        
+        
         GridLayout grid = new GridLayout(0, 10);
         setBorder(new LineBorder(Color.GREEN));
         setLayout(grid);
-
         Insets buttonSeperation = new Insets(0, 0, 0, 0);
         for (int i = 0; i < boardSpaces.length; i++) {
             for (int j = 0; j < boardSpaces[i].length; j++) {
-                GameBoardSpace space = new GameBoardSpace(j, i, this);
+                GameBoardSpace space = new GameBoardSpace(j, i, this, mjp);
                 space.setMargin(buttonSeperation);
                 ImageIcon spaceIcon = new ImageIcon("src/images/grass.png");
                 space.setIcon(spaceIcon);
@@ -81,9 +96,36 @@ public class GameBoardPanel extends JPanel {
         createDarkKnight(8, 2);
         createDarkKnight(8, 7);
         createDarkKnight(8, 8);
-
+        
+        numUnits = units.size();
+        numDarkUnits = darkUnits.size();
+    }
+    
+    public void restartGame(){
+        this.removeAll();
+        
+        init();
+        
+        repaint();
+        revalidate();
     }
 
+    public int getNumUnits(){
+        return this.numUnits;
+    }
+    
+    public int getNumDarkUnits(){
+        return this.numDarkUnits;
+    }
+    
+    public void setNumUnits(int numUnits){
+        this.numUnits = numUnits;
+    }
+    
+    public void setNumDarkNumUnits(int numDarkUnits){
+        this.numDarkUnits = numDarkUnits;
+    }
+    
     public GameBoardSpace getGameBoardSpace(int x, int y) {
         return boardSpaces[x][y];
     }
@@ -140,7 +182,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(dp.getStats());
-        units.add(dp);
+        darkUnits.add(dp);
     }
 
     public void createWizard(int x, int y) {
@@ -158,7 +200,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(dw.getStats());
-        units.add(dw);
+        darkUnits.add(dw);
     }
 
     public void createKnight(int x, int y) {
@@ -176,7 +218,7 @@ public class GameBoardPanel extends JPanel {
         boardSpaces[x][y].setIsOccupied(true);
         boardSpaces[x][y].displayUnitImg();
         boardSpaces[x][y].setToolTipText(dk.getStats());
-        units.add(dk);
+        darkUnits.add(dk);
     }
 
 }

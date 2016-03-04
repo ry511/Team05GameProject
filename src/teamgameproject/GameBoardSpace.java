@@ -1,6 +1,9 @@
 
 package teamgameproject;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,16 +22,18 @@ public class GameBoardSpace extends JButton implements ActionListener {
     private int yCord;
     private boolean isOccupied;
     private Unit unit;
-
+    
+    private MyJPanel mjp;
     private GameBoardPanel gbp;
 
-    public GameBoardSpace(int x, int y, GameBoardPanel gbp) {
+    public GameBoardSpace(int x, int y, GameBoardPanel gbp, MyJPanel mjp) {
         this.xCord = x;
         this.yCord = y;
         this.isOccupied = false;
         this.addActionListener(this);
         this.unit = unit;
         this.gbp = gbp;
+        this.mjp = mjp;
         
 
 
@@ -118,6 +123,14 @@ public class GameBoardSpace extends JButton implements ActionListener {
             }
         }
     }
+    
+    public void win(){
+        
+    }
+    
+    public void darkWin(){
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -126,7 +139,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
         if (isOccupied && !gbp.getIsUnitSelected()) {
             gbp.setCurrentUnit(getUnit());
             gbp.setCurrentSpace(gbp.getGameBoardSpace(getXCord(), getYCord()));
-            isOccupied = false;
+            
             gbp.setIsUnitSelected(true);
             
             showMovementIndicators("src/images/grass_yellow.png");
@@ -138,7 +151,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.getGameBoardSpace(getXCord(), getYCord()).setIsOccupied(true);
             setToolTipText(gbp.getCurrentUnit().getStats());
             gbp.getCurrentSpace().setToolTipText(null);
-            
+            gbp.getCurrentSpace().setIsOccupied(false);
             gbp.getCurrentSpace().displayUnitImg();
             ImageIcon spaceIcon = new ImageIcon("src/images/grass.png");
             gbp.getCurrentSpace().setIcon(spaceIcon);
@@ -171,12 +184,60 @@ public class GameBoardSpace extends JButton implements ActionListener {
             getUnit().setHealth(getUnit().getHealth() - gbp.getCurrentUnit().getAttack());
             System.out.println(getUnit().getHealth());
             if(getUnit().getHealth() <= 0){
+                if(getUnit().getIsDark()){
+                    gbp.setNumDarkNumUnits(gbp.getNumDarkUnits() - 1);
+                    System.out.println(gbp.getNumDarkUnits());
+                }else{
+                    gbp.setNumUnits(gbp.getNumUnits() - 1);
+                    System.out.println(gbp.getNumDarkUnits());
+                }
                 setUnit(null);
                 ImageIcon spaceIcon = new ImageIcon("src/images/grass.png");
                 setIcon(spaceIcon);
                 setIsOccupied(false);
+                
             }
             
+            gbp.setCurrentSpace(null);
+            gbp.setCurrentUnit(null);
+            gbp.setIsUnitSelected(false);
+            System.out.println(gbp.getIsUnitSelected());
+            
+        }
+        
+        if(gbp.getNumUnits() <= 0){
+            JFrame lightWins = new JFrame("Light Team Won");
+            JPanel panel = new JPanel();
+            JLabel message = new JLabel("Light Team Won!");
+
+            panel.add(message);
+            
+            lightWins.getContentPane().add(panel, "Center");
+            lightWins.setBackground(Color.DARK_GRAY);
+            lightWins.setSize(400, 100);
+            lightWins.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            lightWins.setVisible(true);
+            
+            
+            gbp.restartGame();
+        }
+        
+        if(gbp.getNumDarkUnits() <= 0){
+            JFrame darkWins = new JFrame("Dark Team Won");
+            JPanel panel = new JPanel();
+            JLabel message = new JLabel("Dark Team Won!");
+
+            
+            
+            panel.add(message);
+            
+            darkWins.getContentPane().add(panel, "Center");
+            darkWins.setBackground(Color.DARK_GRAY);
+            darkWins.setSize(400, 100);
+            darkWins.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            darkWins.setVisible(true);
+            gbp.restartGame();
+                    
         }
 
     }
