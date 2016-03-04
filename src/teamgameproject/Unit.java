@@ -18,7 +18,7 @@ public abstract class Unit {
     protected boolean vis;
     private ImageIcon img;
 
-    public Unit(int health, int attack, int range, String details, /*int posX, int posY,*/ int mobility, ImageIcon img) {
+    public Unit(int health, int attack, int range, String details, int mobility, ImageIcon img) {
         this.health = health;
         this.attack = attack;
         this.range = range;

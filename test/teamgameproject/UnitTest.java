@@ -40,131 +40,106 @@ public class UnitTest {
     public void tearDown() {
     }
 
+
+
+
+    /**
+     * Test of checkUnitMovement method, of class Unit.
+     */
+    @Test
+    public void testCheckUnitMovementPeon() {
+        System.out.println("checkUnitMovement");
+        int oldX = 0;
+        int oldY = 0;
+        int newPosX = 1;
+        int newPosY = 1;
+        Unit instance = null;
+        AdvancedUnits.Peon p = new AdvancedUnits.Peon();
+        boolean expResult = true;
+        int mobility=1;
+        boolean result = p.checkUnitMovement(oldX, oldY, newPosX, newPosY);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+        @Test
+    public void testCheckUnitMovementWizard() {
+        System.out.println("checkUnitMovement");
+        int oldX = 3;
+        int oldY = 9;
+        int newPosX = 1;
+        int newPosY = 1;
+        Unit instance = null;
+        AdvancedUnits.Wizard w = new AdvancedUnits.Wizard();
+        boolean expResult = false;
+        int mobility=3;
+        boolean result = w.checkUnitMovement(oldX, oldY, newPosX, newPosY);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    
+
     /**
      * Test of getImg method, of class Unit.
      */
-    @Test
-    public void testGetImg() {
-        
-    }
+//    @Test
+//    public void testGetImg() {
+//        
+//    }
 
     /**
      * Test of getHealth method, of class Unit.
      */
-    @Test
-    public void testGetHealth() {
-        Peon pea = new Peon();
-        int peaHealth = pea.getHealth();
-        int expectedHealth = 1;
-        assert(peaHealth == expectedHealth);
-    }
+//    @Test
+//    public void testGetHealth() {
+//        Peon pea = new Peon();
+//        int peaHealth = pea.getHealth();
+//        int expectedHealth = 1;
+//        assert(peaHealth == expectedHealth);
+//    }
+//
+//    /**
+//     * Test of setHealth method, of class Unit.
+//     */
+//    @Test
+//    public void testSetHealth() {
+//        Peon pea = new Peon();
+//        int newHealth = 2;
+//        pea.setHealth(newHealth);
+//        int setHealth = pea.getHealth();
+//        assertEquals(newHealth, setHealth);
+//    }
+//
+//    /**
+//     * Test of getAttack method, of class Unit.
+//     */
+//    @Test
+//    public void testGetAttack() {
+//        System.out.println("getAttack");
+//        Peon pea = new Peon();
+//        int peaAttack = pea.getAttack();
+//        int expResult = 1;
+//        assertEquals(expResult, peaAttack);
+//        
+//    }
 
-    /**
-     * Test of setHealth method, of class Unit.
-     */
-    @Test
-    public void testSetHealth() {
-        Peon pea = new Peon();
-        int newHealth = 2;
-        pea.setHealth(newHealth);
-        int setHealth = pea.getHealth();
-        assertEquals(newHealth, setHealth);
-    }
+//    public class UnitImpl extends Unit {
+//
+//        public UnitImpl() {
+//            super(0, 0, 0, "", 0, null);
+//        }
+//    }
 
-    /**
-     * Test of getAttack method, of class Unit.
-     */
-    @Test
-    public void testGetAttack() {
-        System.out.println("getAttack");
-        Peon pea = new Peon();
-        int peaAttack = pea.getAttack();
-        int expResult = 1;
-        assertEquals(expResult, peaAttack);
-        
-    }
 
-    /**
-     * Test of getRange method, of class Unit.
-     */
-    @Test
-    public void testGetRange() {
-        System.out.println("getRange");
-        Unit instance = null;
-        int expResult = 0;
-        int result = instance.getRange();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of getDetails method, of class Unit.
-     */
-    @Test
-    public void testGetDetails() {
-        System.out.println("getDetails");
-        Unit instance = null;
-        String expResult = "";
-        String result = instance.getDetails();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    public class UnitImpl extends Unit {
+//
+//        public UnitImpl() {
+//            super(0, 0, 0, "", 0, null);
+//        }
+//    }
+//    
 
-    /**
-     * Test of setDetails method, of class Unit.
-     */
-    @Test
-    public void testSetDetails() {
-        
-    }
 
-    /**
-     * Test of getImageDimensions method, of class Unit.
-     */
-    @Test
-    public void testGetImageDimensions() {
-    
-    }
-
-    /**
-     * Test of loadImage method, of class Unit.
-     */
-    @Test
-    public void testLoadImage() {
-      
-    }
-
-    /**
-     * Test of getImage method, of class Unit.
-     */
-    @Test
-    public void testGetImage() {
-        
-    }
-
-    /**
-     * Test of isVisible method, of class Unit.
-     */
-    @Test
-    public void testIsVisible() {
-        
-    }
-
-    /**
-     * Test of setVisible method, of class Unit.
-     */
-    @Test
-    public void testSetVisible() {
-        
-    }
-
-    public class UnitImpl extends Unit {
-
-        public UnitImpl() {
-            super(0, 0, 0, "", 0, null);
-        }
-    }
-    
 }
