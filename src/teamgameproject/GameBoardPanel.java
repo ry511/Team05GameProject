@@ -28,8 +28,8 @@ public class GameBoardPanel extends JPanel {
     private GameBoardSpace newSpace = null;
     private Unit currentUnit = null;
 
-    private ArrayList<Unit> units /*= new ArrayList<Unit>()*/;
-    private ArrayList<Unit> darkUnits /*= new ArrayList<Unit>()*/;
+    private ArrayList<Unit> units;
+    private ArrayList<Unit> darkUnits;
     
     private int numUnits;
     private int numDarkUnits;

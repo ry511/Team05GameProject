@@ -39,12 +39,7 @@ public class PeonTest {
 
     @Test
     public void testAttackPeonMethod() {
-        Peon attackerPea = new Peon();
-        Peon weakPea = new Peon();
-        attackerPea.attackPeon(attackerPea, weakPea);
-        int checkAttack = attackerPea.getAttack();
-        int doubleAttack = 2;
-        assertEquals(checkAttack, doubleAttack);
+        
         
     }
     

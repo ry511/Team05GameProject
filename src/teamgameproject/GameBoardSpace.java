@@ -200,7 +200,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
             showRangeIndicators(true);
             InputStream in;
             try{
-                in = new FileInputStream(new File("/Users/jeongeunsun/NetBeansProjects/NewFolder/Lab2B_Team5/Team05GameProject/src/Soundeffect/footstep.wav"));
+                in = new FileInputStream(new File("src/Soundeffect/footstep.wav"));
                 AudioStream audios=new AudioStream(in);
                 AudioPlayer.player.start(audios);
             }
@@ -234,7 +234,7 @@ public class GameBoardSpace extends JButton implements ActionListener {
             showRangeIndicators(true);
             InputStream in;
             try{
-            in = new FileInputStream(new File("/Users/jeongeunsun/NetBeansProjects/NewFolder/Lab2B_Team5/Team05GameProject/src/Soundeffect/Sword.wav"));
+            in = new FileInputStream(new File("src/Soundeffect/Sword.wav"));
             AudioStream audios=new AudioStream(in);
             AudioPlayer.player.start(audios);
               }

@@ -80,5 +80,17 @@ public class GameBoardPanelTest {
         String stats = "A brave knight Attack: 2 Range: 1 Mobility: 2 Health: 3";
         assertEquals(stats, text);
     }
+    
+    @Test
+    public void testUnit() {
+        GameBoardPanel panel = new GameBoardPanel();
+        panel.createPeon(3, 4);
+        panel.createPeon(4, 3);
+        panel.createDarkPeon(1, 2);
+        panel.createDarkWizard(2,5);
+        int checkUnits = panel.getNumUnits();
+        int checkDarkUnits = panel.getNumDarkUnits();
+        assertEquals(checkUnits, checkDarkUnits);
+    }
  
 }
