@@ -5,6 +5,13 @@
  */
 package teamgameproject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.swing.JOptionPane;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 /**
  *
  * @author jeongeunsun
@@ -18,9 +25,19 @@ public NavigationCntl(){
         theNavigationUI = new NavigationUI(this);
         theNavigationUI.setLocationRelativeTo(null);
         theNavigationUI.setVisible(true);
+        music();
 }
- public void showGameboardFrame(){
-      
+ public void music(){
+       InputStream in;
+        try{
+            in = new FileInputStream(new File("src/Soundeffect/Dragonball.wav"));
+            AudioStream audios=new AudioStream(in);
+            AudioPlayer.player.start(audios);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+            
      //  mjf.setVisible(true);
     }
 }
