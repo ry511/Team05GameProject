@@ -276,39 +276,51 @@ public class GameBoardSpace extends JButton implements ActionListener {
             gbp.setIsUnitSelected(false);
         }
         
-        if(gbp.getNumUnits() <= 0){
+          if (gbp.getNumUnits() <= 0) {
+            InputStream in;
+            try {
+                in = new FileInputStream(new File("src/Soundeffect/Woohoo.wav"));
+                AudioStream audios = new AudioStream(in);
+                AudioPlayer.player.start(audios);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
             JFrame lightWins = new JFrame("Light Team Won");
             JPanel panel = new JPanel();
             JLabel message = new JLabel("Light Team Won!");
 
             panel.add(message);
-            
+
             lightWins.getContentPane().add(panel, "Center");
             lightWins.setBackground(Color.DARK_GRAY);
             lightWins.setSize(400, 100);
             lightWins.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             lightWins.setVisible(true);
-            
-            
+
             gbp.restartGame();
         }
         
-        if(gbp.getNumDarkUnits() <= 0){
+         if (gbp.getNumDarkUnits() <= 0) {
+            InputStream in;
+            try {
+                in = new FileInputStream(new File("src/Soundeffect/Woohoo.wav"));
+                AudioStream audios = new AudioStream(in);
+                AudioPlayer.player.start(audios);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
             JFrame darkWins = new JFrame("Dark Team Won");
             JPanel panel = new JPanel();
             JLabel message = new JLabel("Dark Team Won!");
 
-            
-            
             panel.add(message);
-            
+
             darkWins.getContentPane().add(panel, "Center");
             darkWins.setBackground(Color.DARK_GRAY);
             darkWins.setSize(400, 100);
             darkWins.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             darkWins.setVisible(true);
             gbp.restartGame();
-                    
         }
 
     }
