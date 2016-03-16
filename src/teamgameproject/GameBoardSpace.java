@@ -241,9 +241,9 @@ public class GameBoardSpace extends JButton implements ActionListener {
                catch(Exception e){
                JOptionPane.showMessageDialog(null,e);
              }
-           
-            
-            getUnit().setHealth(getUnit().getHealth() - gbp.getCurrentUnit().getAttack());
+            int victimHealth = getUnit().getHealth();
+            int damageToVictim = gbp.getCurrentUnit().getAttack();
+            getUnit().setHealth((victimHealth - damageToVictim));
             System.out.println(getUnit().getHealth());
             if(getUnit().getHealth() <= 0){
                 if(getUnit().getIsDark()){
