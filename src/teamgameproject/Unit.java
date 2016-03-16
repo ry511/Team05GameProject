@@ -9,8 +9,6 @@ public abstract class Unit {
     private int attack;
     private int range;
     private String details;
-    //private int posX;
-    //private int posY;
     private int mobility;
     protected Image image;
     protected int width;
@@ -25,22 +23,20 @@ public abstract class Unit {
         this.attack = attack;
         this.range = range;
         this.details = details;
-        //this.posX = posX;
-        //this.posY = posY;
         this.mobility = mobility;
         this.img = img;
         this.isDark = isDark;
         this.ID = ID;
     }
-    
-    public int getID(){
+
+    public int getID() {
         return this.ID;
     }
-    
-    public boolean getIsDark(){
+
+    public boolean getIsDark() {
         return this.isDark;
     }
-    
+
     public String getStats() {
         return getDetails() + " Attack: " + getAttack() + " Range: " + getRange() + " Mobility: " + getMobility()
                 + " Health: " + getHealth();
@@ -54,6 +50,10 @@ public abstract class Unit {
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public boolean checkUnitMovement(int oldX, int oldY, int newPosX, int newPosY) {
         if ((Math.abs(oldX - newPosX) <= mobility) && (Math.abs(oldY - newPosY) <= mobility)) {
             return true;
@@ -62,7 +62,7 @@ public abstract class Unit {
         }
 
     }
-    
+
     public boolean checkUnitRange(int oldX, int oldY, int newPosX, int newPosY) {
         if ((Math.abs(oldX - newPosX) <= range) && (Math.abs(oldY - newPosY) <= range)) {
             return true;
@@ -70,10 +70,6 @@ public abstract class Unit {
             return false;
         }
 
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
     }
 
     public int getAttack() {
@@ -95,23 +91,6 @@ public abstract class Unit {
     public void setDetails(String details) {
         this.details = details;
     }
-    /*
-     public int getPosX() {
-     return posX;
-     }
-
-     public void setPosX(int posX) {
-     this.posX = posX;
-     }
-
-     public int getPosY() {
-     return posY;
-     }
-
-     public void setPosY(int posY) {
-     this.posY = posY;
-     }
-     */
 
     public Image getImage() {
         return image;
