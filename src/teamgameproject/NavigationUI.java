@@ -62,7 +62,10 @@ public class NavigationUI extends JFrame {
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {
        
         this.setVisible(false);
-        navigationCntl.showGameboardFrame();
+      // navigationCntl.music();
+        MyJFrame mjf = new MyJFrame();
+        mjf.setVisible(true);
+        mjf.setLocationRelativeTo(null);
 
     }
 }

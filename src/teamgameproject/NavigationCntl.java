@@ -6,10 +6,16 @@
 package teamgameproject;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import static java.lang.System.in;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  *
@@ -27,24 +33,14 @@ public NavigationCntl(){
         theNavigationUI.setVisible(true);
         
 }
- public void showGameboardFrame(){
-      
-        MyJFrame mjf = new MyJFrame();
-        mjf.setVisible(true);
-        mjf.setLocationRelativeTo(null);
-    }
- 
- public void setImage(NavigationUI d,ImageIcon a){
-    this.image = a;
-     
+  public void music(){
+     InputStream in;
       try {
-
-     //       d.add(new JLabel(new ImageIcon(ImageIO.read(new File(ImageIcon a)))));
-
-        } catch (IOException e) {
-            System.out.println("Image ");
-        }
-     
- }
-}
+                in = new FileInputStream(new File("src/Soundeffect/Woohoo.wav"));
+                AudioStream audios = new AudioStream(in);
+                AudioPlayer.player.start(audios);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+}}
 
