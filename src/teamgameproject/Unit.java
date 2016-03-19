@@ -10,13 +10,11 @@ public abstract class Unit {
     private int range;
     private String details;
     private int mobility;
-    protected Image image;
-    protected int width;
-    protected int height;
     protected boolean vis;
     private ImageIcon img;
     private boolean isDark;
     private int ID;
+
 
     public Unit(int health, int attack, int range, String details, int mobility, ImageIcon img, boolean isDark, int ID) {
         this.health = health;
@@ -37,6 +35,11 @@ public abstract class Unit {
         return this.isDark;
     }
 
+    /*
+    Created getStats method in Unit that is called in classes in AdvancedUnits using super()
+    to reduce amount of code in AdvancedUnits.
+    Refactored by: Shifan Zheng on March 3
+    */
     public String getStats() {
         return getDetails() + " Attack: " + getAttack() + " Range: " + getRange() + " Mobility: " + getMobility()
                 + " Health: " + getHealth();
@@ -90,10 +93,6 @@ public abstract class Unit {
 
     public void setDetails(String details) {
         this.details = details;
-    }
-
-    public Image getImage() {
-        return image;
     }
 
     public boolean isVisible() {

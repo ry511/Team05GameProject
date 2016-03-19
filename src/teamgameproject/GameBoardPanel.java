@@ -71,6 +71,16 @@ public class GameBoardPanel extends JPanel {
             }
         }
 
+         /*
+        Created methods to create units instead of repeating the same code multiple times
+        Ex: AdvancedUnits.Peon p = new AdvancedUnits.Peon();
+        boardSpaces[x][y].setUnit(p);
+        boardSpaces[x][y].setIsOccupied(true);
+        boardSpaces[x][y].displayUnitImg();
+        boardSpaces[x][y].setToolTipText(p.getStats());
+        becomes createPeon(x, y)
+        Refactored by: Shifan Zheng on February 26
+        */
         createPeon(2, 0);
         createPeon(2, 3);
         createPeon(2, 4);

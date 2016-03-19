@@ -6,6 +6,13 @@ import javax.swing.ImageIcon;
  *
  * @author ShiFan
  */
+
+/*
+Created AdvancedUnits class to combine multiple unit classes. Originally we had a separate class that each extended
+Unit, but they each stored similar information, so AdvancedUnits was created where sublcasses extended the Unit class 
+to make the code easier to manage as they are all under one class.
+Refactored by: Shifan Zheng, committed on February 29
+*/
 public class AdvancedUnits {
 
     static final boolean normalUnit = false;
@@ -27,6 +34,7 @@ public class AdvancedUnits {
     /*
      Created variables for magic numbers for wizard and dark wizard classes
      and added @Override to getStats methods.
+    Refactored by: Shifan Zheng
      */
     public static class Wizard extends Unit {
 
@@ -57,6 +65,7 @@ public class AdvancedUnits {
     /*
      Created variables for magic numbers for knight and dark knight classes
      and added @Override to getStats methods.
+    Refactored by: Shifan Zheng
      */
 
     public static class DarkKnight extends Unit {
@@ -90,6 +99,7 @@ public class AdvancedUnits {
     /*
      Created variables for magic numbers for peon and dark peon classes
      and added @Override to getStats methods.
+    Refactored by: Shifan Zheng
      */
     public static class Peon extends Unit {
 
@@ -108,7 +118,7 @@ public class AdvancedUnits {
     public static class DarkPeon extends Unit {
 
         public DarkPeon() {
-            super(peonHealth, peonAttack, peonRange, peonDetail, peonMobility, peonIMG, darkUnit, darkPeonID);
+            super(peonHealth, peonAttack, peonRange, peonDetail, peonMobility, darkPeonIMG, darkUnit, darkPeonID);
 
         }
 
