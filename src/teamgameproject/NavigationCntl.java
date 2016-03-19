@@ -6,11 +6,10 @@
 package teamgameproject;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import javax.swing.JOptionPane;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,25 +18,33 @@ import sun.audio.AudioStream;
 public class NavigationCntl {
  
 NavigationUI theNavigationUI = null;
+ImageIcon image;
        // MyJFrame mjf = new MyJFrame();
 public NavigationCntl(){
         
         theNavigationUI = new NavigationUI(this);
         theNavigationUI.setLocationRelativeTo(null);
         theNavigationUI.setVisible(true);
-        music();
+        
 }
- public void music(){
-       InputStream in;
-        try{
-            in = new FileInputStream(new File("src/Soundeffect/Dragonball.wav"));
-            AudioStream audios=new AudioStream(in);
-            AudioPlayer.player.start(audios);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-            
-     //  mjf.setVisible(true);
+ public void showGameboardFrame(){
+      
+        MyJFrame mjf = new MyJFrame();
+        mjf.setVisible(true);
+        mjf.setLocationRelativeTo(null);
     }
+ 
+ public void setImage(NavigationUI d,ImageIcon a){
+    this.image = a;
+     
+      try {
+
+     //       d.add(new JLabel(new ImageIcon(ImageIO.read(new File(ImageIcon a)))));
+
+        } catch (IOException e) {
+            System.out.println("Image ");
+        }
+     
+ }
 }
+

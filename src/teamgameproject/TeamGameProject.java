@@ -24,9 +24,7 @@ public class TeamGameProject {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        // TODO code application logic here
-      //  MyJFrame mjf = new MyJFrame();
-      //  mjf.setVisible(true);
+     
         NavigationCntl nCntl = new NavigationCntl();
   }
     
