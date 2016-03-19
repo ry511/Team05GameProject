@@ -7,6 +7,19 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import static java.lang.System.in;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.AudioPlayer;
+
 /**
  *
  * @author srh10
@@ -62,10 +75,11 @@ public class NavigationUI extends JFrame {
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {
        
         this.setVisible(false);
-      // navigationCntl.music();
+      NavigationCntl a = new NavigationCntl();
         MyJFrame mjf = new MyJFrame();
         mjf.setVisible(true);
         mjf.setLocationRelativeTo(null);
+         a.music();
 
     }
 }

@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-
+import sun.audio.AudioPlayer;
 /**
  *
  * @author jeongeunsun
@@ -31,12 +31,12 @@ public NavigationCntl(){
         theNavigationUI = new NavigationUI(this);
         theNavigationUI.setLocationRelativeTo(null);
         theNavigationUI.setVisible(true);
-        
+     
 }
   public void music(){
      InputStream in;
       try {
-                in = new FileInputStream(new File("src/Soundeffect/Woohoo.wav"));
+                in = new FileInputStream(new File("src/Soundeffect/Dragonball.wav"));
                 AudioStream audios = new AudioStream(in);
                 AudioPlayer.player.start(audios);
             } catch (Exception e) {
