@@ -38,6 +38,33 @@ public class GameBoardPanel extends JPanel {
 
     private MyJPanel mjp;
     
+//    this needs to be moved to gameboardspace
+//    old Code: we had code that was commented out because it was not needed in the logic
+//    new code: deleted unused code 
+//    refactored by Ryan Bass in a commit on Feb 29, 2016
+    
+//    this needs to be moved to gameboardspace
+//    old code: there was code reuse when it came to displaying possible unit movement on click
+//    new code: moved reused code to a method that handeled the same logic, then added methods to replace reused code
+//    refactored by Ryan Bass in a commit on Mar 4, 2016
+    
+    
+    
+//    Old Code: we were using mouse listeners in our first attempt
+//    new code: we changed to action listener so i deleted unused code associated with the mouse listener
+//    refactored by Ryan Bass in a commit on Feb 29, 2016 
+    
+    
+    
+//    old code: we had a class called pieceListener that would be use to handel actions for each piece
+//    new code: we realized that there was a better way to do this so we got rid of the unused class
+//    refactored by Ryan Bass in a commit on Feb 29, 2016 
+    
+    
+//    old code: we had a class called peon
+//    new code: we decided to make one class that would make all diffrent types of units instead of a method for each type of unit
+//    refactored by Ryan Bass in a commit on Mar 2, 2016 
+    
     public GameBoardPanel() {
         super();
 
@@ -53,8 +80,12 @@ public class GameBoardPanel extends JPanel {
         units = new ArrayList<Unit>();
         darkUnits = new ArrayList<Unit>();
         
+//       Used to be GridLayout grid = new GridLayout(0, 10);
+//       Changed it to int boardSize = 10;, and GridLayout grid = new GridLayout(0, boardSize); to Replace Magic Number with Symbolic Constant
+//       Refactored by Ryan Bass
+        int boardSize = 10;
         
-        GridLayout grid = new GridLayout(0, 10);
+        GridLayout grid = new GridLayout(0, boardSize);
         setBorder(new LineBorder(Color.GREEN));
         setLayout(grid);
         Insets buttonSeperation = new Insets(0, 0, 0, 0);
@@ -176,7 +207,7 @@ public class GameBoardPanel extends JPanel {
         this.boardSpaces[x][y] = space;
     }
 
-    public void createPeon(int x, int y) {
+    private void createPeon(int x, int y) {
         AdvancedUnits.Peon p = new AdvancedUnits.Peon();
         boardSpaces[x][y].setUnit(p);
         boardSpaces[x][y].setIsOccupied(true);
@@ -185,8 +216,12 @@ public class GameBoardPanel extends JPanel {
         units.add(p);
         
     }
-
-    public void createDarkPeon(int x, int y) {
+    
+//    Old Code: creat unit methods were public 
+//    new code: made them private following the Hide Method refactor because they were not used outside of this class
+//    Refactored by Ryan Bass
+    
+    private void createDarkPeon(int x, int y) {
         AdvancedUnits.DarkPeon dp = new AdvancedUnits.DarkPeon();
         boardSpaces[x][y].setUnit(dp);
         boardSpaces[x][y].setIsOccupied(true);
@@ -195,7 +230,7 @@ public class GameBoardPanel extends JPanel {
         darkUnits.add(dp);
     }
 
-    public void createWizard(int x, int y) {
+    private void createWizard(int x, int y) {
         AdvancedUnits.Wizard w = new AdvancedUnits.Wizard();
         boardSpaces[x][y].setUnit(w);
         boardSpaces[x][y].setIsOccupied(true);
@@ -204,7 +239,7 @@ public class GameBoardPanel extends JPanel {
         units.add(w);
     }
 
-    public void createDarkWizard(int x, int y) {
+    private void createDarkWizard(int x, int y) {
         AdvancedUnits.DarkWizard dw = new AdvancedUnits.DarkWizard();
         boardSpaces[x][y].setUnit(dw);
         boardSpaces[x][y].setIsOccupied(true);
@@ -213,7 +248,7 @@ public class GameBoardPanel extends JPanel {
         darkUnits.add(dw);
     }
 
-    public void createKnight(int x, int y) {
+    private void createKnight(int x, int y) {
         AdvancedUnits.Knight k = new AdvancedUnits.Knight();
         boardSpaces[x][y].setUnit(k);
         boardSpaces[x][y].setIsOccupied(true);
@@ -222,7 +257,7 @@ public class GameBoardPanel extends JPanel {
         units.add(k);
     }
 
-    public void createDarkKnight(int x, int y) {
+    private void createDarkKnight(int x, int y) {
         AdvancedUnits.DarkKnight dk = new AdvancedUnits.DarkKnight();
         boardSpaces[x][y].setUnit(dk);
         boardSpaces[x][y].setIsOccupied(true);
