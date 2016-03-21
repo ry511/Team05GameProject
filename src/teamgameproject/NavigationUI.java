@@ -2,23 +2,15 @@ package teamgameproject;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import static java.lang.System.in;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-import sun.audio.AudioPlayer;
 
 /**
  *
@@ -27,9 +19,7 @@ import sun.audio.AudioPlayer;
 public class NavigationUI extends JFrame {
 
     private NavigationCntl navigationCntl = null;
-
     private JButton startButton;
-
     private JPanel buttonPanel;
 
     public NavigationUI(NavigationCntl parentNavigationCntl) {
@@ -37,7 +27,6 @@ public class NavigationUI extends JFrame {
         initCustomerComponents();
     }
 
-    
     public void initCustomerComponents() {
         this.setSize(1000, 1000);
         this.setLocationRelativeTo(null);
@@ -72,14 +61,25 @@ public class NavigationUI extends JFrame {
         });
     }
 
+    
+      public void setMusic(){
+     InputStream in;
+      try {
+                in = new FileInputStream(new File("src/Soundeffect/Dragonball.wav"));
+                AudioStream audios = new AudioStream(in);
+                AudioPlayer.player.start(audios);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+}
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {
-       
+
         this.setVisible(false);
-      NavigationCntl a = new NavigationCntl();
+        NavigationCntl a = new NavigationCntl();
+        setMusic();
         MyJFrame mjf = new MyJFrame();
         mjf.setVisible(true);
         mjf.setLocationRelativeTo(null);
-         a.music();
 
     }
 }

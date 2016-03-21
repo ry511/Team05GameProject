@@ -10,13 +10,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import static java.lang.System.in;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.AudioPlayer;
+
+import sun.audio.*;
 /**
  *
  * @author jeongeunsun
@@ -24,8 +22,8 @@ import sun.audio.AudioPlayer;
 public class NavigationCntl {
  
 NavigationUI theNavigationUI = null;
-ImageIcon image;
-       // MyJFrame mjf = new MyJFrame();
+
+     
 public NavigationCntl(){
         
         theNavigationUI = new NavigationUI(this);
@@ -33,14 +31,5 @@ public NavigationCntl(){
         theNavigationUI.setVisible(true);
      
 }
-  public void music(){
-     InputStream in;
-      try {
-                in = new FileInputStream(new File("src/Soundeffect/Dragonball.wav"));
-                AudioStream audios = new AudioStream(in);
-                AudioPlayer.player.start(audios);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-}}
+}
 
